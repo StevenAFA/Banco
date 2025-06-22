@@ -192,6 +192,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <!-- Encabezado de la tabla -->
                         <th>Fecha</th>
                         <th>ID del remitente</th>
                         <th>ID del destinatario</th>
@@ -199,12 +200,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Recorre todas las transacciones y las muestra en la tabla -->
                     @foreach (var transaction in Model)
                     {
                         <tr>
+                            <!-- Muestra la fecha de la transacción -->
                             <td>@transaction.TransactionDate.ToString("g")</td>
+                            <!-- Muestra el ID del remitente -->
                             <td>@transaction.SenderId</td>
+                            <!-- Muestra el ID del destinatario -->
                             <td>@transaction.RecipientId</td>
+                            <!-- Muestra la cantidad transferida -->
                             <td>@transaction.Amount</td>
                         </tr>
                     }
