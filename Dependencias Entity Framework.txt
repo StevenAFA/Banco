@@ -1,0 +1,22 @@
+
+//Estas se encuentran en los NuGets
+
+Microsoft.EntityFrameworkCore
+
+Microsoft.EntityFrameworkCore.SqlServer
+
+Microsoft.EntityFrameworkCore.Tools
+
+
+
+//Conexion utilizada para la SQLServer
+"ConnectionStrings": {
+        "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=Banco;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+
+
+//Configurar la conexion en Program.cs
+using Microsoft.EntityFrameworkCore;
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); 
+builder.Services.AddDbContext<Data>(options => options.UseSqlServer(connectionString));
