@@ -67,7 +67,6 @@
                     transform: translateY(-2px);
                 }
 
-        /* Contenedor principal */
         .home-container {
             flex: 1;
             display: flex;
@@ -76,7 +75,6 @@
             padding: 20px;
         }
 
-        /* Caja de contenido principal */
         .home-box {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 40px;
@@ -108,7 +106,6 @@
             font-weight: 600;
         }
 
-        /* Botones de acción */
         .btn-primary {
             padding: 12px 25px;
             background-color: #1a2a6c;
@@ -224,10 +221,8 @@
                 <h1 class="display-4">Bienvenidos al banco</h1>
                 <p>Su mejor afiliado para sus tramites</p>
 
-                <!-- Verifica si el usuario está logueado -->
                 @if (Context.Session.GetInt32("UserId") == null)
                 {
-                    <!-- Si el usuario no está logueado, muestra los botones de registro e inicio de sesión -->
                     <div class="mt-5">
                         <h3>Get Started</h3>
                         <div class="d-flex justify-content-center gap-3">
@@ -238,10 +233,9 @@
                 }
                 else
                 {
-                    <!-- Si el usuario está logueado, muestra un mensaje de bienvenida y el botón para ir al dashboard -->
                     <div class="mt-5">
-                        <h3>¡Bienvenido de nuevo!</h3>
-                        <p>¡Administra tu cuenta y realiza transacciones!</p>
+                        <h3>Bienvenido de nuevo!</h3>
+                        <p>Manage your account and perform transactions!</p>
                         <a asp-controller="Usuario" asp-action="Dashboard" asp-route-id="@Context.Session.GetInt32("UserId")" class="btn btn-info">Volver al Dashboard</a>
                     </div>
                 }
@@ -250,4 +244,3 @@
     </div>
 </body>
 </html>
-

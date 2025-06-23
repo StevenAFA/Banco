@@ -4,26 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ExamenBanco</title>
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <!-- Estilos personalizados -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <!-- Estilos específicos para el examen -->
     <link rel="stylesheet" href="~/ExamenBanco.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <!-- Barra de navegación -->
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <!-- Logo y enlace al Home -->
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Banco CastroCarazo</a>
-                <!-- Botón de menú para dispositivos móviles -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-expanded="false">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <!-- Menú de navegación -->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -34,7 +27,6 @@
                         </li>
                         @if (Context.Session.GetInt32("UserId") != null)
                         {
-                            <!-- Opciones para usuarios logueados -->
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Usuario" asp-action="CerrarSesion">Cerrar Sesion</a>
                             </li>
@@ -49,24 +41,18 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <!-- Cuerpo principal de la página -->
             @RenderBody()
         </main>
     </div>
 
-    <!-- Pie de página -->
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2025 - ExamenBanco - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
-    <!-- Scripts de la página -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <!-- Sección de scripts adicionales -->
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
